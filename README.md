@@ -17,8 +17,8 @@
 [image12]: ./output_images/simple_detect5.png "Simple Classification"
 [image13]: ./output_images/heatmap0.png "Heatmap example"
 [image14]: ./output_images/heatmap5.png "Heatmap example"
-[image15]: ./output_images/heatmap0.png "Final result example"
-[image16]: ./output_images/heatmap5.png "Final result""
+[image15]: ./output_images/final_out0.png "Final result example"
+[image16]: ./output_images/final_out55.png "Final result""
 
 [image17]: ./test_images/test_image0.png "Test image"
 [image18]: ./test_images/test_image4.png "Test image"
@@ -26,7 +26,7 @@
 [image19]: ./test_images/complex_detect0.png "Test detect"
 [image20]: ./test_images/complex_detect5.png "Test detect"
 
-[image21]: ./output_images/heatmap4.png "Final result"
+[image21]: ./output_images/final_out4.png "Final result"
 
 
 In this project I will built an image pipeline which detects and tracks vehicles in a video. 
@@ -54,6 +54,8 @@ Some examples were provided to test the functions on in the project folder. I lo
 **Example of test image I used while bulding the pipeline**
 
 
+
+
 ![test image 2][image18]
 
 **Example of test image I used while bulding the pipeline.**
@@ -66,13 +68,19 @@ The data used for training the SVM classifier is available [here](https://s3.ama
 
 **Example of a car from the training data**
 
+
+
 ![Car Example][image2]
 
 **Example of a car from the training data**
 
+
+
 ![Not car][image3]
 
 **Example of not a car from the training data**
+
+
 
 ![Not Car][image4]
 
@@ -87,9 +95,13 @@ I extrated the HOG feature from images. A lot of this code is from the lessons, 
 
 **HOG Feature from an example training data**
 
+
+
 ![HOG Example][image6]
 
 **HOG features from an examle training data**
+
+
   
 
 ## Additional Feauture Extractions
@@ -101,9 +113,13 @@ Additionally, I extracted spatial and color histogram features from training dat
 
 **Histograms of spaital binning feature extractions**
 
+
+
 ![Color histograms][image8]
 
 **Histograms of color binning feature extractions**
+
+
 
 
 I had to standardize these features later as they are all combined. Here is a few histograms of the combined features, showing the new range.
@@ -111,6 +127,7 @@ I had to standardize these features later as they are all combined. Here is a fe
 ![Combined and Standardized histograms][image9]
 
 **Histograms of combined and standardized features**
+
 
 
 
@@ -125,6 +142,8 @@ Below is an output of a simple window-window search process, where a classifier 
 ![Simple window search][image10]
 
 **Grid of simple window search, for each window, features must be extracted and a fed through a trained classifier**
+
+
 
 
 ## Training a classifier
@@ -150,9 +169,13 @@ I tested the simple sliding window technique with the feature extraction and cla
 **Example of simple vehicle detection process with no cars**
 
 
+
+
 ![Simple Vehicle Detection][image12]
 
 **Example of simple vehicle detection process with no cars**
+
+
 
 
 ## Further Sliding Window Techniques to Improve Performance
@@ -165,9 +188,13 @@ The classifier is ok, but still needs some work before implementing on a movie. 
 **Example of complex sliding window vehicle detection process with no cars**
 
 
+
+
 ![Complex Vehicle Detection][image20]
 
 **Example of complex sliding window vehicle detection process with no cars**
+
+
 
 
 ## Dealing with False Positives and Multiple Detections
@@ -180,9 +207,13 @@ There are still false positives to deal with. I implemented a heat map threshold
 **Heatmap vehicle detection process with no cars. Due to the threshold, the false positive from the previous step has dissapeared**
 
 
+
+
 ![Complex Vehicle Detection][image15]
 
 **Example of final detection based off above heatmap. This detection does not have the false positive it had before**
+
+
 
 
 ![Complex Vehicle Detection][image14]
@@ -190,9 +221,13 @@ There are still false positives to deal with. I implemented a heat map threshold
 **Heatmap vehicle detection process with cars. The threshold process also aggregates multiple detections, making a cleaner final detection**
 
 
+
+
 ![Complex Vehicle Detection][image16]
 
 **Example of complex sliding window vehicle detection process with no cars**
+
+
 
 
 ## Building the pipeline and testing
@@ -205,34 +240,24 @@ Next I put these functions together into a pipeline is the pipeline built with t
 **Vehicle detection pipeline output on example**
 
 
+
+
 ![Complex Vehicle Detection][image21]
 
 **Vehicle detection pipeline output on example**
+
+
 
 
 ## Run the pipeline on a video 
 
 Next I'll use the pipeline to create a video. Much like the previous project, I'm using moviepy.editor to loop the frames and create a new video. The process loops the detection pipeline over the frames in the video and outputs a new video with the overlayed bounding boxes.
 
-[![Advanced Lane Lines](http://img.youtube.com/vi/https://youtu.be/WNPw9d1A9Jo/0.jpg)](https://youtu.be/https://youtu.be/WNPw9d1A9Jo "Vehicle Detection and Tracking")
+[![Advanced Lane Lines](http://img.youtube.com/vi/https://youtu.be/WNPw9d1A9Jo/0.jpg)](https://youtu.be/WNPw9d1A9Jo "Vehicle Detection and Tracking")
 
 
 ## Discussion and Conclusion
 
 The pipeline performed adaquitely, but fell short of nice, smooth detections completely absent of false positives. More post processing would help smooth out the bounding boxes. Multiple aggregation and false positve detection methods could be employed as an ensemble of information to inform the bounding boxes. Previous box sizes could be stored, and next box sizes compared, as we know the size of the car in the video should not change very fast if they are going usual speeds. Additionally, the hard selection of one color space will likely not be robust in various lighting and weather scenarios. My process is also pretty slow, which would be a big problem in live implementation. Overall, this pipeline demonstrates a process which uses hand extracted features to detect vehicles in a video with reasonable accuracy but could definately be improved. 
-
-
-
-
-
- 
-
-
-
- 
-
-
-
-
 
 
