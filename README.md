@@ -20,11 +20,11 @@
 [image15]: ./output_images/final_out0.png "Final result example"
 [image16]: ./output_images/final_out5.png "Final result"
 
-[image17]: ./test_images/test_image0.png "Test image"
-[image18]: ./test_images/test_image4.png "Test image"
+[image17]: ./test_images/test0.png "Test image"
+[image18]: ./test_images/test4.png "Test image"
 
-[image19]: ./test_images/complex_detect0.png "Test detect"
-[image20]: ./test_images/complex_detect5.png "Test detect"
+[image19]: ./output_images/complex_detect0.png "Test detect"
+[image20]: ./output_images/complex_detect5.png "Test detect"
 
 [image21]: ./output_images/final_out4.png "Final result"
 
