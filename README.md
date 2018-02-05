@@ -253,7 +253,7 @@ Next I put these functions together into a pipeline is the pipeline built with t
 
 Next I'll use the pipeline to create a video. Much like the previous project, I'm using moviepy.editor to loop the frames and create a new video. The process loops the detection pipeline over the frames in the video and outputs a new video with the overlayed bounding boxes.
 
-[![Advanced Lane Lines](http://img.youtube.com/vi/https://youtu.be/WNPw9d1A9Jo/0.jpg)](https://youtu.be/WNPw9d1A9Jo "Vehicle Detection and Tracking")
+[![Advanced Lane Lines](http://img.youtube.com/vi/WNPw9d1A9Jo/0.jpg)](https://youtu.be/WNPw9d1A9Jo "Vehicle Detection and Tracking")
 
 
 ## Discussion and Conclusion
