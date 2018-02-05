@@ -18,7 +18,7 @@
 [image13]: ./output_images/heatmap0.png "Heatmap example"
 [image14]: ./output_images/heatmap5.png "Heatmap example"
 [image15]: ./output_images/final_out0.png "Final result example"
-[image16]: ./output_images/final_out5.png "Final result""
+[image16]: ./output_images/final_out5.png "Final result"
 
 [image17]: ./test_images/test_image0.png "Test image"
 [image18]: ./test_images/test_image4.png "Test image"
