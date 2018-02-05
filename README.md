@@ -20,7 +20,7 @@
 [image15]: ./output_images/final_out0.png "Final result example"
 [image16]: ./output_images/final_out5.png "Final result"
 
-[image17]: ./test_images/test0.jpg "Test image"
+[image17]: ./test_images/test1.jpg "Test image"
 [image18]: ./test_images/test4.jpg "Test image"
 
 [image19]: ./output_images/complex_detect0.png "Test detect"
