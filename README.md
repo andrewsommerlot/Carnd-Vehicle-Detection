@@ -1,5 +1,7 @@
 # Vehicle Detection and Tracking
-
+---
+**See the output on youtube here**
+[![Advanced Lane Lines](http://img.youtube.com/vi/4RfYsbS3Azk/0.jpg)](https://youtu.be/4RfYsbS3Azk "Vehicle Detection and Tracking")
 
 [//]: # (Image References)
 
@@ -28,6 +30,9 @@
 
 [image21]: ./output_images/final_out4.png "Final result"
 
+[image22]: ./output_images/heat_obj.png "Heat object iteration"
+
+---
 
 In this project I will built an image pipeline which detects and tracks vehicles in a video. 
 
@@ -227,12 +232,20 @@ There are still false positives to deal with. I implemented a heat map threshold
 
 **Example of complex sliding window vehicle detection process with no cars**
 
+## Adding Memory into the Heatmaps
+
+To add to the effectiveness of the heatmaps, I saved a few heat maps from previous frames, and combined them to help smooth out the classifier results. I decided to add the heatmaps together to make the bounding boxes consider the density of positive resutls across time as well as space in aggregating and thresholding out false positives. I used the deque object from base python 3 to store the heatmaps. Then combine them every pipeline iteration, adding the newest and removing the oldest. I had to tune both the number of frames that were saved and added and also the heatmap threshold that was used with them. This wasn't the fastest process, but it did work. In the end, I used 5 frames, as too many gave me more positives. I could use a higher threshold than before, and ended up using 15. 
+
+![deque object storage of multiple heatmaps][image22]
+
+**Illustration of a the deque object storage method mid iteration**
+
 
 
 
 ## Building the pipeline and testing
 
-Next I put these functions together into a pipeline is the pipeline built with the functions above and made to output a tracking image based on one input image. There are a good number of parameters hard coded in here by now, so it was a good idea to double check the pipeline output was as expected. The output is not perfect, but I think its worth a try.  
+Next I put these functions together into a pipeline is the pipeline built with the functions above and made to output a tracking image based on one input image. There are a good number of parameters hard coded in here by now, so it was a good idea to double check the pipeline output was as expected. The output is not perfect, but I think its worth a try. 
 
 
 ![Complex Vehicle Detection][image15]
@@ -253,11 +266,13 @@ Next I put these functions together into a pipeline is the pipeline built with t
 
 Next I'll use the pipeline to create a video. Much like the previous project, I'm using moviepy.editor to loop the frames and create a new video. The process loops the detection pipeline over the frames in the video and outputs a new video with the overlayed bounding boxes.
 
-[![Advanced Lane Lines](http://img.youtube.com/vi/WNPw9d1A9Jo/0.jpg)](https://youtu.be/WNPw9d1A9Jo "Vehicle Detection and Tracking")
+[![Advanced Lane Lines](http://img.youtube.com/vi/4RfYsbS3Azk/0.jpg)](https://youtu.be/4RfYsbS3Azk "Vehicle Detection and Tracking")
 
 
 ## Discussion and Conclusion
 
-The pipeline performed adaquitely, but fell short of nice, smooth detections completely absent of false positives. More post processing would help smooth out the bounding boxes. Multiple aggregation and false positve detection methods could be employed as an ensemble of information to inform the bounding boxes. Previous box sizes could be stored, and next box sizes compared, as we know the size of the car in the video should not change very fast if they are going usual speeds. Additionally, the hard selection of one color space will likely not be robust in various lighting and weather scenarios. My process is also pretty slow, which would be a big problem in live implementation. Overall, this pipeline demonstrates a process which uses hand extracted features to detect vehicles in a video with reasonable accuracy but could definately be improved. 
+The pipeline performed adaquitely, though the smoothness could be improved and it wasn't entirely free of false positives. Adding heat map memory from previous frames improved the smoothness visably.More post processing would help smooth out the bounding boxes. Multiple aggregation and false positve detection methods could be employed as an ensemble of information to inform the bounding boxes.
+
+Additionally, the hard selection of one color space will likely not be robust in various lighting and weather scenarios. Similar to the previous project, this pipeline has many parameters to tune which could greatly effect the quality of the final product. My process is also pretty slow, which would be a big problem in live implementation. Overall, this pipeline demonstrates a process which uses hand extracted features to detect vehicles in a video with reasonable accuracy but could definately be improved. 
 
 
