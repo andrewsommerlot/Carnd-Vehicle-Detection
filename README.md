@@ -1,6 +1,8 @@
 # Vehicle Detection and Tracking
 ---
 **See the output on youtube here**
+
+
 [![Advanced Lane Lines](http://img.youtube.com/vi/4RfYsbS3Azk/0.jpg)](https://youtu.be/4RfYsbS3Azk "Vehicle Detection and Tracking")
 
 [//]: # (Image References)
